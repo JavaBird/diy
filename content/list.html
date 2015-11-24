@@ -1,0 +1,166 @@
+{template "content","header"}
+  <body>
+  
+  <!-- 导航条 -->
+{template "content","navlist"}
+    <div class="context tem">
+
+       <div class="container ">
+        
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="bcru" >
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-home fa-fw"></i>
+                           首页</a></li>
+                           
+                    <li>{catpos($catid)}</li>
+                    <!-- <li class="active">jQuery事件绑定的最佳实践</li> -->
+                  </ol>
+            </div>
+            {pc:content action="lists" catid="$catid" num="15" order="inputtime DESC" page="$page"}
+
+                 {loop $data $val}
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="row">
+                      <div class="col-sm-3">
+                          <a href="#" class="thumbnail">
+                            <img src="{IMG_PATH}diyimage/w3c.jpg" height="150" width="220" >
+                          </a>
+                      </div>
+                      <div class="col-sm-9">
+                          <h4 class="h4o"><a href="{$val[url]}">{$val[title]}</a></h4>
+                          <ul class="list-inline">
+                            <li><i class="fa fa-clock-o fa-fw"></i>{date('Y-m-d H:i:s',$val[inputtime])}</li>
+                            <li><i class="fa fa-eye fa-fw"></i>阅读量</li>
+                            <li><i class="fa fa-comments-o fa-fw"></i>评论(0)</li>
+                          </ul>
+                          <p class="note">
+                            {$val[description]}...
+                          </p>
+                          <p >
+                            <mark class="biq">标签：</mark>
+                            <span class="label label-success">{$val[catname]}</span>
+                            </p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              {/loop}
+              {$pages}
+              {/pc}
+              
+             
+             <!-- 分页 -->
+             <div class="center-block">
+                  <ul class="pagination">
+                    <li>
+                      <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                      <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+             </div>
+            </div>
+            <div class="col-sm-3">
+
+                <div class="row conr" >
+                  <div class="col-sm-12">
+                       <div class="panel panel-default">
+                        <div class="panel-body">
+                          <div class="thumbnail">
+                             <img src="image/wexi.jpg" height="258" width="258" alt="码农之家">
+                            <div class="caption">
+                              <h3>微信关注我们</h3>
+                              <p class="note">专业分享最新IT技术、文章的码农乐园。</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-12" >
+                      <!-- Nav tabs -->
+                      <ul id="o_nav"  class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">本周点击排行</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">本月点击排行</a></li>
+                       
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                          <div class="panel panel-default">
+                            <div class="panel-body">
+                              <ul >
+                                  <li><em>1</em><a href="article.htm">揭秘 IFTTT 每天处理几十亿事件数...</a></li>
+                                  <li><em>2</em><a>一次皆大欢喜的程序员跳槽加薪</a></li>
+                                  <li><em>3</em><a>程序员不愁没练手的小项目了</a></li>
+                                  <li><em>4</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
+                                  <li><em>5</em><a>揭秘 IFTTT 每天处理几十亿事件数...</a></li>
+                                  <li><em>6</em><a>一次皆大欢喜的程序员跳槽加薪</a></li>
+                                  <li><em>7</em><a>程序员不愁没练手的小项目了</a></li>
+                                  <li><em>8</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
+                                  <li><em>9</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
+                                  <li><em>10</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                          <div class="panel panel-default">
+                            <div class="panel-body">
+                              本月点击排行
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+
+             
+
+            </div>
+
+          </div>
+
+        </div> 
+   </div>
+   <div class="foot">
+     <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <div class="bj">
+               <ul class="list-inline">
+                  <li><a href="">关于我们</a></li>
+                  <li><a href="">联系我们</a></li>
+                  <li><a href="">广告合作</a></li>
+                  <li><a href="">免职声明</a></li>
+                </ul>
+             </div>
+             <p class="note text-center">Copyright ©2011 www.manzj.net 码农之家版权所有.</p>
+             <p class="note text-center">晋ICP备××××号-1.</p>
+          </div>
+         
+       </div>
+     </div>
+
+   </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
