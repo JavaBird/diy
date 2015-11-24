@@ -24,12 +24,12 @@
                         </button>
                     <!--    <a class="navbar-brand visible-xs-block" href="www.manzj.net">码农之家</a>  -->
                         <a class="navbar-brand nav-log" href="www.manzj.net">
-                          <img src="{IMG_PATH}diy/image/logo.png" height="43" width="115" alt="码农之家" >
+                          <img src="{IMG_PATH}diy/logo.png" height="43" width="115" alt="码农之家" >
                         </a> 
                       </div>
                       <!-- Collect the nav links, forms, and other content for toggling -->
                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul id="menu" class="nav navbar-nav navbar-right">
 
                           {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
                                    
@@ -49,7 +49,7 @@
                                     {/pc}
 
                                    
-                                    <a href="{$r[url]}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$r[catname]}<span class="caret"></span></a>
+                                    <a href="{$r[url]}" class="dropdown-toggle">{$r[catname]}<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                       {pc:content action="category" catid="$r[arrchildid]" num="25" siteid="$siteid" order="listorder ASC"}
                                           {loop $data $rs}

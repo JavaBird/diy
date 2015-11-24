@@ -14,11 +14,11 @@
                     <li><a href="#"><i class="fa fa-home fa-fw"></i>
                            首页</a></li>
                            
-                    <li>{catpos($catid)}</li>
+                    {catpos($catid)}
                     <!-- <li class="active">jQuery事件绑定的最佳实践</li> -->
                   </ol>
             </div>
-            {pc:content action="lists" catid="$catid" num="15" order="inputtime DESC" page="$page"}
+            {pc:content action="lists" catid="$catid" num="2" order="inputtime DESC" page="$page"}
 
                  {loop $data $val}
               <div class="panel panel-default">
@@ -26,7 +26,7 @@
                   <div class="row">
                       <div class="col-sm-3">
                           <a href="#" class="thumbnail">
-                            <img src="{IMG_PATH}diyimage/w3c.jpg" height="150" width="220" >
+                            <img src="{IMG_PATH}diy/w3c.jpg" height="150" width="220" >
                           </a>
                       </div>
                       <div class="col-sm-9">
@@ -48,30 +48,9 @@
                 </div>
               </div>
               {/loop}
-              {$pages}
+
+              {$front_pages}
               {/pc}
-              
-             
-             <!-- 分页 -->
-             <div class="center-block">
-                  <ul class="pagination">
-                    <li>
-                      <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                      <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-             </div>
             </div>
             <div class="col-sm-3">
 
@@ -80,7 +59,7 @@
                        <div class="panel panel-default">
                         <div class="panel-body">
                           <div class="thumbnail">
-                             <img src="image/wexi.jpg" height="258" width="258" alt="码农之家">
+                             <img src="{IMG_PATH}diy/wexi.jpg" height="258" width="258" alt="码农之家">
                             <div class="caption">
                               <h3>微信关注我们</h3>
                               <p class="note">专业分享最新IT技术、文章的码农乐园。</p>
@@ -137,30 +116,22 @@
 
         </div> 
    </div>
-   <div class="foot">
-     <div class="container">
-       <div class="row">
-          <div class="col-sm-12">
-             <div class="bj">
-               <ul class="list-inline">
-                  <li><a href="">关于我们</a></li>
-                  <li><a href="">联系我们</a></li>
-                  <li><a href="">广告合作</a></li>
-                  <li><a href="">免职声明</a></li>
-                </ul>
-             </div>
-             <p class="note text-center">Copyright ©2011 www.manzj.net 码农之家版权所有.</p>
-             <p class="note text-center">晋ICP备××××号-1.</p>
-          </div>
-         
-       </div>
-     </div>
+  {template "content","footer"}
+  <script type="text/javascript">
 
-   </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+   
+
+        $(function(){
+    
+          $( "#menu" ).menu(
+
+            { position: { my: "left top", at: "right-100 top+40" } }
+
+          );
+          
+        });
+
+    </script>
   </body>
 </html>
