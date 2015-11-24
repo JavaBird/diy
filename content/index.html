@@ -22,7 +22,7 @@ WHERE
   a.id = b.id
 AND a.catid = c.catid
 ORDER BY
-  updatetime DESC" cache="3600" page="$page" return="data" num="1"}
+  updatetime DESC" cache="3600" page="$page" return="data" num="15"}
 
                {loop $data $r}
 
@@ -54,29 +54,10 @@ ORDER BY
                 </div>
                 {/loop}
 
-                {$pages}
+              
               {/pc}
 
-             <!-- 分页 -->
-             <div class="center-block">
-                  <ul class="pagination">
-                    <li>
-                      <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                      <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-             </div>
+            
             </div>
             <div class="col-sm-3">
 

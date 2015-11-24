@@ -1,124 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>内容页</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="css/override.css">
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <style type="text/css">
-
-
-    .affix{
-
-       position: fixed;
-
-       top:10px;
-
-       right:10px;
-
-    }
-
-    .affix-top{
-
-
-    }
-
-    .affix-bottom{
-
-      position: absolute;  
-
-      top:0px;
-
-    }
-
-
-
-    </style>
-  </head>
-  <body data-spy="scroll" data-target="#leftTool">
-  <!-- 工具条 -->
-   <div class="toptool hidden-xs">
-      <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-              <a href="">码农之家 www.manzj.net</a>
-            </div>
-            <div class="col-sm-9">
-              
-            </div>
-        </div>
-      </div>
-    </div> 
-    <!-- 导航 -->
-    <div class="topNav navbar" role="navigation">
-        <div class="container">
-                      <!-- Brand and toggle get grouped for better mobile display -->
-                      <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                        </button>
-                    <!--    <a class="navbar-brand visible-xs-block" href="www.manzj.net">码农之家</a>  -->
-                        <a class="navbar-brand nav-log" href="www.manzj.net">
-                          <img src="image/logo.png" height="43" width="115" alt="码农之家" >
-                        </a> 
-                      </div>
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="#">首页</a></li>
-                          <li><a href="#">前沿资讯</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端设计<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">HTML</a></li>
-                              <li><a href="#">CSS</a></li>
-                              <li><a href="#">Javascript</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li>
-                          <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务器端开发<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">Java</a></li>
-                              <li><a href="#">Php</a></li>
-                              <li><a href="#">ASP.NET</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li>
-                           <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据库开发<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">MySql</a></li>
-                              <li><a href="#">Oracle</a></li>
-                              <li><a href="#">SQLServer</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </div><!-- /.navbar-collapse -->
-        </div>
-    </div>
+{template "content","header"}
+  <body >
+  {template "content","navlist"}
 
     <div class="context tem">
 
@@ -129,57 +11,23 @@
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i>
 首页</a></li>
-                    <li><a href="#">前端设计</a></li>
-                    <li class="active">jQuery事件绑定的最佳实践</li>
+                    {catpos($catid)}
+                    <li><a>{$title}</a></li>
                   </ol>
             </div>
               
               <div class="panel panel-default">
                 <div class="panel-body">
-                <p class="text-center article-title"><a>jQuery事件绑定的最佳实践</a></p>
+                <p class="text-center article-title"><a>{$title}</a></p>
                 <div class="text-center">
                     <ul class="list-inline">
-                      <li>2015-11-17</li>
+                      <li>{$inputtime}</li>
                       <li>作者：admin</li>
-                      <li>阅读(851)</li>
+                      <li >点击：<span id="hits"></span></li>
                     </ul>
                 </div>
                 <p>
-                  你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
-你可以想象到的是，不小心的取消事件绑定可能会导致严重的我们不想要的副作用。继续看我们可以通过哪些技巧来减轻这个问题。
-
-小心的取消事件绑定
-
-一般情况下我们不会在一个元素的同一事件类型绑定多个事件处理函数。让我们再看一下之前的那个按钮：
+                  {$content}
                 </p>
                 <button type="button" class="btn btn-primary btn-lg btn-block">转载请注明出处：www.manjz.net</button>
                 <h4 class="h4_">相关推荐</h4>
@@ -190,7 +38,7 @@
                     <li><a href="#">jQuery 随滚动条滚动效果 （适用于内容页长文章）</a></li>
                 </ul>
 
-                <div id="SOHUCS" sid="34243"></div>
+                <div id="SOHUCS" sid="{$id}"></div>
                   <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
                   <script type="text/javascript">
                       window._config = { showScore: true };
@@ -216,7 +64,7 @@
 
                         <div class="panel-body">
                           <div class="thumbnail">
-                             <img src="image/wexi.jpg" height="258" width="258" alt="码农之家">
+                             <img src="{IMG_PATH}diy/wexi.jpg" height="258" width="258" alt="码农之家">
                             <div class="caption">
                               <h3>微信关注我们</h3>
                               <p class="note">专业分享最新IT技术、文章的码农乐园。</p>
@@ -273,38 +121,23 @@
 
         </div> 
    </div>
-   <div class="foot">
-     <div class="container">
-       <div class="row">
-          <div class="col-sm-12">
-             <div class="bj">
-               <ul class="list-inline">
-                  <li><a href="">关于我们</a></li>
-                  <li><a href="">联系我们</a></li>
-                  <li><a href="">广告合作</a></li>
-                  <li><a href="">免职声明</a></li>
-                </ul>
-             </div>
-             <p class="note text-center">Copyright ©2011 www.manzj.net 码农之家版权所有.</p>
-             <p class="note text-center">晋ICP备××××号-1.</p>
-          </div>
-         
-       </div>
-     </div>
-
-   </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+  
+    {template "content","footer"}
+    <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+  <script type="text/javascript">
 
 
+   
 
+        $(function(){
+    
+          $( "#menu" ).menu(
 
+            { position: { my: "left top", at: "right-100 top+40" } }
 
-
+          );
+          
+        });
 
     </script>
   </body>
