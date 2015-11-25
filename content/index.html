@@ -22,7 +22,7 @@ WHERE
   a.id = b.id
 AND a.catid = c.catid
 ORDER BY
-  updatetime DESC" cache="3600" page="$page" return="data" num="15"}
+  updatetime DESC" cache="3600" page="$page" return="data" num="3"}
 
                {loop $data $r}
 
@@ -54,7 +54,7 @@ ORDER BY
                 </div>
                 {/loop}
 
-              
+              {$pages}
               {/pc}
 
             
