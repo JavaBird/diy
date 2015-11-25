@@ -6,8 +6,9 @@
 
        <div class="container ">
           <h5>最新发布 <small>2015-11-17</small></h5>
+          <a href="javascript:getArticle();">bbbbbbbbbbb</a>
           <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-9" id="content">
 
               {pc:get  sql="SELECT
   a.title as title,a.description as description
@@ -123,7 +124,7 @@ ORDER BY
 
         </div> 
    </div>
-  
+   
   {template "content","footer"}
   <script type="text/javascript">
 
@@ -140,6 +141,13 @@ ORDER BY
           
         });
 
+
+        function getArticle(){
+
+
+          $('#content').load('http://localhost/index.php?m=article&c=article&a=getArticleList');
+
+        }
     </script>
 
 
