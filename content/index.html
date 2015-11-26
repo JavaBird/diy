@@ -10,10 +10,11 @@
             <div class="col-sm-9" id="content">
 
               {pc:get  sql="SELECT
+  a.id as id,
   a.title as title,a.description as description
-  ,a.inputtime as inputtime,
-  b.readpoint as readpoint
+  ,a.inputtime as inputtime
   ,a.url as url,c.catname as catname
+  c.catid as catid
 FROM
   v9_news a,
   v9_news_data b,
@@ -24,7 +25,15 @@ AND a.catid = c.catid
 ORDER BY
   updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="3"}
 
+            {php $categorys = getcache('category_content_'.$siteid,'commons');}
+
                {loop $data $r}
+
+               {php $category = $categorys[$r[catid]];}
+
+                     {php $modelid = $category['modelid'];}
+
+               {php $db = pc_base::load_model('hits_model');   $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views];}
 
                 <div class="panel panel-default">
                   <div class="panel-body">
@@ -38,7 +47,7 @@ ORDER BY
                             <h4 class="h4o"><a href="{$r[url]}">{$r[title]}</a></h4>
                             <ul class="list-inline">
                               <li><i class="fa fa-clock-o fa-fw"></i>{date('Y-m-d H:i:s',$r[inputtime])}</li>
-                              <li><i class="fa fa-eye fa-fw"></i>阅读量({$r[readpoint]})</li>
+                              <li><i class="fa fa-eye fa-fw"></i>阅读量({$views})</li>
                               <li><i class="fa fa-comments-o fa-fw"></i>评论(0)</li>
                             </ul>
                             <p class="note">

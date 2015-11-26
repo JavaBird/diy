@@ -124,6 +124,8 @@
   
     {template "content","footer"}
     <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+    <script type="text/javascript" src="{JS_PATH}diy/scripts/shCore.js"></script>
+    <script type="text/javascript" src="{JS_PATH}diy/scripts/shAutoloader.js"></script>
   <script type="text/javascript">
 
 
@@ -138,6 +140,36 @@
           );
           
         });
+
+        SyntaxHighlighter.autoloader(
+          'applescript      {JS_PATH}diy/scripts/shBrushAppleScript.js',
+          'actionscript3 as3    {JS_PATH}diy/scripts/shBrushAS3.js',
+          'bash shell       {JS_PATH}diy/scripts/shBrushBash.js',
+          'coldfusion cf      {JS_PATH}diy/scripts/shBrushColdFusion.js',
+          'cpp c          {JS_PATH}diy/scripts/shBrushCpp.js',
+          'obj-c objc       {JS_PATH}diy/scripts/shBrushObjC.js',
+          'c# c-sharp csharp    {JS_PATH}diy/scripts/shBrushCSharp.js',
+          'css          {JS_PATH}diy/scripts/shBrushCss.js',
+          'delphi pascal      {JS_PATH}diy/scripts/shBrushDelphi.js',
+          'diff patch pas     {JS_PATH}diy/scripts/shBrushDiff.js',
+          'erl erlang       {JS_PATH}diy/scripts/shBrushErlang.js',
+          'groovy         {JS_PATH}diy/scripts/shBrushGroovy.js',
+          'haxe hx        {JS_PATH}diy/scripts/shBrushHaxe.js',
+          'java         {JS_PATH}diy/scripts/shBrushJava.js',
+          'jfx javafx       {JS_PATH}diy/scripts/shBrushJavaFX.js',
+          'js jscript javascript  {JS_PATH}diy/scripts/shBrushJScript.js',
+          'perl pl        {JS_PATH}diy/scripts/shBrushPerl.js',
+          'php          {JS_PATH}diy/scripts/shBrushPhp.js',
+          'text plain       {JS_PATH}diy/scripts/shBrushPlain.js',
+          'py python        {JS_PATH}diy/scripts/shBrushPython.js',
+          'ruby rails ror rb    {JS_PATH}diy/scripts/shBrushRuby.js',
+          'scala          {JS_PATH}diy/scripts/shBrushScala.js',
+          'sql          {JS_PATH}diy/scripts/shBrushSql.js',
+          'vb vbnet       {JS_PATH}diy/scripts/shBrushVb.js',
+          'ps powershell      {JS_PATH}diy/scripts/shBrushPowerShell.js',
+          'xml xhtml xslt html  {JS_PATH}diy/scripts/shBrushXml.js'
+        );
+SyntaxHighlighter.all();
 
     </script>
   </body>
