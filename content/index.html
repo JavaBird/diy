@@ -6,7 +6,6 @@
 
        <div class="container ">
           <h5>最新发布 <small>2015-11-17</small></h5>
-          <a href="javascript:getArticle();">bbbbbbbbbbb</a>
           <div class="row">
             <div class="col-sm-9" id="content">
 
@@ -23,7 +22,7 @@ WHERE
   a.id = b.id
 AND a.catid = c.catid
 ORDER BY
-  updatetime DESC" cache="3600" page="$page" return="data" num="3"}
+  updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="3"}
 
                {loop $data $r}
 
@@ -55,7 +54,7 @@ ORDER BY
                 </div>
                 {/loop}
 
-              {$pages}
+              {$front_pages}
               {/pc}
 
             
@@ -128,9 +127,6 @@ ORDER BY
   {template "content","footer"}
   <script type="text/javascript">
 
-
-   
-
         $(function(){
     
           $( "#menu" ).menu(
@@ -142,12 +138,6 @@ ORDER BY
         });
 
 
-        function getArticle(){
-
-
-          $('#content').load('http://localhost/index.php?m=article&c=article&a=getArticleList');
-
-        }
     </script>
 
 
