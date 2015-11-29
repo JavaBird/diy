@@ -107,15 +107,9 @@ ORDER BY
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
-                            {pc:content action="hits" catid="$catid" num="10" order="views DESC"}
-                              <ul >
-                              {php $i=1;}
-                               {loop $data $r}
-                                  <li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
-                                  {php $i++;}
-                                {/loop}
-                              </ul>
-                              {/pc}
+                            
+                            <div id="cyReping" role="cylabs" data-use="reping" ></div>
+                             <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cys6D9dK0"></script>
                             </div>
                           </div>
                         </div>
@@ -149,7 +143,7 @@ ORDER BY
    </div>
    
   {template "content","footer"}
-
+  <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cys6D9dK0"></script>
  
 
 

@@ -98,25 +98,29 @@
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
+                              {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
                               <ul >
-                                  <li><em>1</em><a>揭秘 IFTTT 每天处理几十亿事件数...</a></li>
-                                  <li><em>2</em><a>一次皆大欢喜的程序员跳槽加薪</a></li>
-                                  <li><em>3</em><a>程序员不愁没练手的小项目了</a></li>
-                                  <li><em>4</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
-                                  <li><em>5</em><a>揭秘 IFTTT 每天处理几十亿事件数...</a></li>
-                                  <li><em>6</em><a>一次皆大欢喜的程序员跳槽加薪</a></li>
-                                  <li><em>7</em><a>程序员不愁没练手的小项目了</a></li>
-                                  <li><em>8</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
-                                  <li><em>9</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
-                                  <li><em>10</em><a>AngularJS 入门教学视频【更新至第 1...</a></li>
+                                {php $i=1;}
+                               {loop $data $r}
+                                  <li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+                                 {php $i++}
+                                {/loop}
                               </ul>
+                              {/pc}
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                           <div class="panel panel-default">
                             <div class="panel-body">
-                              本月点击排行
+                              {pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
+                              <ul >
+                               {loop $data $r}
+                                  <li><em>{number_format($r[monthviews])}</em><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+                                
+                                {/loop}
+                              </ul>
+                              {/pc}
                             </div>
                           </div>
                         </div>
