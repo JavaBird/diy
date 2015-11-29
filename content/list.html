@@ -44,8 +44,11 @@
                             {$val[description]}...
                           </p>
                           <p >
-                            <mark class="biq">标签：</mark>
-                            <span class="label label-success">{$val[catname]}</span>
+                            <span class="label label-info arrowed-right">标签：</span>
+                              {php $keywords = explode(' ',$val[keywords]);}
+                              {loop $keywords $keyword}
+                              <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                              {/loop}
                             </p>
                       </div>
                   </div>
@@ -126,21 +129,6 @@
    </div>
   {template "content","footer"}
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cys6D9dK0"></script>
-  <script type="text/javascript">
-
-
-   
-
-        $(function(){
-    
-          $( "#menu" ).menu(
-
-            { position: { my: "left top", at: "right-100 top+40" } }
-
-          );
-          
-        });
-
-    </script>
+  
   </body>
 </html>

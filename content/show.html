@@ -29,15 +29,32 @@
                 <p>
                   {$content}
                 </p>
-                <button type="button" class="btn btn-primary btn-lg btn-block">转载请注明出处：www.manjz.net</button>
-                <h4 class="h4_">相关推荐</h4>
-                <ul class="xgtj">
-                    <li><a href="#">关闭/显示侧边栏简洁版(适用于大前端主题)</a></li>
-                    <li><a href="#">JavaScript实现360度全景图片展示效果</a></li>
-                    <li><a href="#">jQuery 随滚动条滚动效果 （适用于内容页长文章）</a></li>
-                    <li><a href="#">jQuery 随滚动条滚动效果 （适用于内容页长文章）</a></li>
-                </ul>
 
+                <p style="margin-bottom:10px">
+                  <strong>相关热词搜索：</strong>{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a>  {/loop}
+                  </p>
+                <button type="button" class="btn btn-primary btn-lg btn-block">转载请注明出处：www.manjz.net</button>
+
+                  
+                <p></p>
+                  <p >
+                      <strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><p/>
+                  <p>
+                      <strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+                  </p>
+
+
+
+                {pc:content action="relation" relation="$relation" id="$id" catid="$catid" num="5" keywords="$rs[keywords]"}
+                  {if $data}
+                    <h4 class="h4_">相关推荐</h4>
+                        <ul class="xgtj">
+                        {loop $data $r}
+                            <li><a href="{$r[url]}"  target="_blank">{$r[title]}</a></li>
+                        {/loop}
+                        </ul>
+                    {/if}
+                {/pc}
                 <div id="SOHUCS" sid="{$id}"></div>
                   <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
                   <script type="text/javascript">
@@ -49,10 +66,6 @@
 
                 </div>
               </div>
-
-
-
-
 
             </div>
             <div id="#leftTool" class="col-sm-3"  >
@@ -130,15 +143,6 @@
 
    
 
-        $(function(){
-    
-          $( "#menu" ).menu(
-
-            { position: { my: "left top", at: "right-100 top+40" } }
-
-          );
-          
-        });
 
         SyntaxHighlighter.autoloader(
           'applescript      {JS_PATH}diy/scripts/shBrushAppleScript.js',

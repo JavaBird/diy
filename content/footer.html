@@ -26,3 +26,16 @@
     <script src="{JS_PATH}diy/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="{JS_PATH}diy/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="{JS_PATH}diy/holder.js"></script>
+     <script type="text/javascript">
+
+        $(function(){
+    
+          $("#menu > li").bind('mouseenter mouseleave', function() {
+            $(this).toggleClass('open');
+          });
+          
+        });
+
+
+    </script>

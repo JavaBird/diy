@@ -38,9 +38,9 @@
 
                                 {loop $data $r}
                                    {if $r[child]}
-                                   <li class="dropdown">
-                                    <a href="{$r[url]}" class="dropdown-toggle" >{$r[catname]}<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
+                                   <li class="">
+                                    <a href="{$r[url]}"  >{$r[catname]}<span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-caret">
                                       {pc:content action="category" catid="$r[arrchildid]" num="25" siteid="$siteid" order="listorder ASC"}
                                           {loop $data $rs}
                                            <li><a href="{$rs[url]}">{$rs[catname]}</a></li>
@@ -56,38 +56,7 @@
                                 {/pc}
 
 
-                          <!-- <li class="active"><a href="#">首页</a></li>
-                          <li><a href="#">前沿资讯</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端设计<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">HTML</a></li>
-                              <li><a href="#">CSS</a></li>
-                              <li><a href="#">Javascript</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li>
-                          <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服务器端开发<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">Java</a></li>
-                              <li><a href="#">Php</a></li>
-                              <li><a href="#">ASP.NET</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li>
-                           <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据库开发<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">MySql</a></li>
-                              <li><a href="#">Oracle</a></li>
-                              <li><a href="#">SQLServer</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                            </ul>
-                          </li> -->
+                          
                         </ul>
                       </div><!-- /.navbar-collapse -->
         </div>

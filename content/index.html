@@ -13,7 +13,10 @@
   a.id as id,
   a.title as title,a.description as description
   ,a.inputtime as inputtime
-  ,a.url as url,c.catname as catname
+  ,a.url as url
+  ,a.thumb as thumb
+  ,a.keywords as keywords
+  ,c.catname as catname
   ,c.catid as catid
 FROM
   v9_news a,
@@ -40,7 +43,11 @@ ORDER BY
                     <div class="row">
                         <div class="col-sm-3">
                             <a href="#" class="thumbnail">
-                              <img src="{IMG_PATH}diy/w3c.jpg" height="150" width="220" >
+                              {if $r[thumb]}
+                              <img src="{thumb($r['thumb'],150,220)}"  />
+                              {else}
+                               <img data-src="holder.js/171x117/text:码农之家" alt="码农之家"/>
+                              {/if}
                             </a>
                         </div>
                         <div class="col-sm-9">
@@ -54,8 +61,11 @@ ORDER BY
                              {$r[description]}...
                             </p>
                             <p >
-                              <mark class="biq">标签：</mark>
-                              <span class="label label-info">{$r[catname]}</span>
+                               <span class="label label-info arrowed-right">标签：</span>
+                              {php $keywords = explode(' ',$r[keywords]);}
+                              {loop $keywords $keyword}
+                              <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                              {/loop}
                               </p>
                         </div>
                     </div>
@@ -139,21 +149,8 @@ ORDER BY
    </div>
    
   {template "content","footer"}
-  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cys6D9dK0"></script>
-  <script type="text/javascript">
 
-        $(function(){
-    
-          $( "#menu" ).menu(
-
-            { position: { my: "left top", at: "right-100 top+40" } }
-
-          );
-          
-        });
-
-
-    </script>
+ 
 
 
 
