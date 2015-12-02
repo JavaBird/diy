@@ -16,6 +16,7 @@
       'list.html' => '列表页',
       'nav.html' => '导航条',
       'show.html' => '文章内容页',
+      'page.html' => '网站相关'
     ),
   ),
 );?>

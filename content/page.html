@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <!-- Bootstrap -->
+    <link href="{CSS_PATH}diy/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{CSS_PATH}diy/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{CSS_PATH}diy/override.css">
+    <link rel="stylesheet" type="text/css" href="{CSS_PATH}diy/base.css">
+    <style type="text/css">
+
+        body{
+
+          background-color: #fff;
+
+        }
+
+        .cont{
+
+             background-color: #fff;
+
+             margin-top: 5px;
+          
+             
+
+        }
+
+        .warper{
+
+          background-color: #f6f6f6;
+          height: 80%;
+
+        }
+
+        .foot{
+
+           margin-top: 0px;
+
+           padding-top: 15px;
+
+        }
+
+
+       .bcru{
+
+       margin-top:10px;
+
+       }
+
+          @media(min-width: 786px){
+
+            .addmtop{
+
+             margin-top:20px;
+
+             }
+
+
+
+        }
+
+
+
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="{JS_PATH}diy/html5shiv.min.js"></script>
+      <script src="{JS_PATH}diy/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   
+    <div class="topNav navbar" role="navigation">
+        <div class="container addmtop">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                    <!--    <a class="navbar-brand visible-xs-block" href="www.manzj.net">码农之家</a>  -->
+                        <a class="navbar-brand nav-log" href="{siteurl($siteid)}">
+                          <img src="{IMG_PATH}diy/logo.png" height="43" width="115" alt="码农之家" >
+                        </a> 
+                      </div>
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul id="menu" class="nav navbar-nav navbar-right">
+
+                        {loop $arrchild_arr $cid}
+
+                          <li{if $catid==$cid} class="active"{/if}><a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a></li>
+
+                        {/loop}
+                        </ul>
+                      </div><!-- /.navbar-collapse -->
+        </div>
+    </div>
+
+    <div class="warper">
+      
+
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="bcru" >
+                <ol class="breadcrumb">
+                    <li><a href="{siteurl($siteid)}"><i class="fa fa-home fa-fw"></i>
+首页</a></li>
+                   {loop $arrchild_arr $cid}
+
+                          {if $catid==$cid}
+
+                          <li ><a href="{$CATEGORYS[$cid][url]}"></i>{$CATEGORYS[$cid][catname]}</a></li>
+                          {/if}
+
+                        {/loop}  
+                  </ol>
+            </div>
+                <div class=" well cont">
+                  
+
+
+
+
+                </div>
+              
+
+            </div>
+        </div>
+    </div>
+ </div>
+
+   <div class="foot">
+     <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <p class="note text-center">Copyright ©2015 www.manzj.net 码农之家 版权所有.</p>
+             <p class="note text-center">晋ICP备<a href="http://www.miitbeian.gov.cn/">15009134号</a>  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256849348'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256849348%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></p>
+          </div>
+         
+       </div>
+     </div>
+
+   </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{JS_PATH}diy/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{JS_PATH}diy/bootstrap.min.js"></script>
+  </body>
+</html>

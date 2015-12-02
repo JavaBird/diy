@@ -4,10 +4,18 @@
           <div class="col-sm-12">
              <div class="bj">
                <ul class="list-inline">
-                  <li><a href="">关于我们</a></li>
+
+                  {pc:content action="category" catid="1" num="25" siteid="$siteid" order="listorder ASC"}
+
+                    {loop $data $r}
+                                   <li><a href="{$r[url]}">{$r[catname]}</a></li>     {/loop}
+
+                    {/pc}
+
+                 <!--  <li><a href="">关于我们</a></li>
                   <li><a href="">联系我们</a></li>
                   <li><a href="">广告合作</a></li>
-                  <li><a href="">免职声明</a></li>
+                  <li><a href="">免职声明</a></li> -->
                 </ul>
              </div>
              <p class="note text-center">Copyright ©2015 www.manzj.net 码农之家版权所有.</p>
