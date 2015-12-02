@@ -94,11 +94,12 @@ ORDER BY
                         </div>
                       </div>
                   </div>
+
                   <div class="col-sm-12" >
                       <!-- Nav tabs -->
                       <ul id="o_nav"  class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">热点排行</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">编辑推荐</a></li>
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">头条排行</a></li>
+                        
                        
                       </ul>
 
@@ -107,30 +108,24 @@ ORDER BY
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
-                            
-                            <div id="cyReping" role="cylabs" data-use="reping" ></div>
-                             <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cys6D9dK0"></script>
-                            </div>
-                          </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">
-                          <div class="panel panel-default">
-                            <div class="panel-body">
-                            {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
+                                 {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
                               <ul>
                                 {php $i=1;}
                                   {loop $data $r}
                                    <li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
                                    {php $i++;}
                                 {/loop}
-                              </ul>
-                            {/pc}
+                                </ul>
+                              {/pc}
                             </div>
                           </div>
                         </div>
+                       
                       </div>
 
-                  </div>
+                     </div>
+
+
                 </div>
 
              
@@ -143,7 +138,7 @@ ORDER BY
    </div>
    
   {template "content","footer"}
-  <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cys6D9dK0"></script>
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cys6D9dK0"></script>
  
 
 

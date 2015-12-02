@@ -55,14 +55,9 @@
                         </ul>
                     {/if}
                 {/pc}
+                <div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{$id}"></div>
                 <div id="SOHUCS" sid="{$id}"></div>
-                  <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
-                  <script type="text/javascript">
-                      window.changyan.api.config({
-                          appid: 'cys6D9dK0',
-                          conf: 'prod_0db8abb8879c8ad0337fab595f58dd51'
-                      });
-                  </script> 
+                  
 
                 </div>
               </div>
@@ -139,12 +134,17 @@
    </div>
   
     {template "content","footer"}
+    <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cys6D9dK0"></script>
+    <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
     <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
     <script type="text/javascript" src="{JS_PATH}diy/scripts/shCore.js"></script>
     <script type="text/javascript" src="{JS_PATH}diy/scripts/shAutoloader.js"></script>
   <script type="text/javascript">
 
-
+    window.changyan.api.config({
+                          appid: 'cys6D9dK0',
+                          conf: 'prod_0db8abb8879c8ad0337fab595f58dd51'
+                      });
    
 
 
