@@ -9,7 +9,7 @@
             <div class="col-sm-9">
             <div class="bcru" >
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-home fa-fw"></i>
+                    <li><a href="{siteurl($siteid)}"><i class="fa fa-home fa-fw"></i>
 首页</a></li>
                     {catpos($catid)}
                     <li><a>{$title}</a></li>
@@ -21,8 +21,8 @@
                 <p class="text-center article-title"><a>{$title}</a></p>
                 <div class="text-center">
                     <ul class="list-inline">
-                      <li>{$inputtime}</li>
-                      <li>作者：admin</li>
+                      <li>日期：{$inputtime}</li>
+                      <li>来源：{$copyfrom}</li>
                       <li >点击：<span id="hits"></span></li>
                     </ul>
                 </div>

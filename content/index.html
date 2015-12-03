@@ -54,14 +54,14 @@ ORDER BY
                             <h4 class="h4o"><a href="{$r[url]}">{$r[title]}</a></h4>
                             <ul class="list-inline">
                               <li><i class="fa fa-clock-o fa-fw"></i> {date('Y-m-d',$r[inputtime])}</li>
-                              <li><i class="fa fa-eye fa-fw"></i> 点击量( {$views} )</li>
-                              <li><i class="fa fa-comments-o fa-fw"></i> 评论(<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span>)</li>
+                              <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
+                              <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span></li>
                             </ul>
                             <p class="note">
                              {$r[description]}...
                             </p>
                             <p >
-                               <span class="label label-info arrowed-right">标签：</span>
+                               <span class="label label-info ">标签：</span>
                               {php $keywords = explode(' ',$r[keywords]);}
                               {loop $keywords $keyword}
                               <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
