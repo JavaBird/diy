@@ -32,12 +32,19 @@
 
     <script type="text/javascript" src="{JS_PATH}diy/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="{JS_PATH}diy/holder.js"></script>
+    <script type="text/javascript" src="{JS_PATH}diy/push.js"></script>
      <script type="text/javascript">
 
         $(function(){
-    
-          $("#menu > li").bind('mouseenter mouseleave', function() {
-            $(this).toggleClass('open');
+      
+     
+
+          $("#menu > li").bind('mouseenter', function() {
+            $(this).addClass('open');
+          });
+
+          $("#menu > li").bind('mouseleave', function() {
+            $(this).removeClass('open');
           });
           
         });

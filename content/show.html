@@ -1,6 +1,6 @@
 {template "content","header"}
   <body >
-  {template "content","navlist"}
+  {template "content","nav"}
 
     <div class="context tem">
 
@@ -33,7 +33,11 @@
                 <p style="margin-bottom:10px">
                   <strong>相关热词搜索：</strong>{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a>  {/loop}
                   </p>
-                <button type="button" class="btn btn-primary btn-lg btn-block">转载请注明出处：www.manjz.net</button>
+                <div class="alert alert-danger" role="alert">
+
+除非特别声明，码农之家均为原创或投稿报道，转载请注明作者及原文链接
+<p>原文地址：<a href="{$url}">{$url}</a></p>
+</div>
 
                   
                 <p></p>
@@ -93,29 +97,53 @@
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
+                                <div  class="tab-mod   on">
+                                    <div class="rank-mod">
                               {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
                               <ul >
                                 {php $i=1;}
                                {loop $data $r}
-                                  <li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+
+                                  {if $i <= 3}
+                                              <li class=" emp">
+                                            {else}
+                                               <li>
+                                            {/if}
+
+                                  <span>{$i}</span><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
                                  {php $i++}
                                 {/loop}
                               </ul>
                               {/pc}
+                               </div>
+                               </div>
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                           <div class="panel panel-default">
                             <div class="panel-body">
+                                <div  class="tab-mod   on">
+                                    <div class="rank-mod">
+
                               {pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
                               <ul >
                                {loop $data $r}
-                                  <li><em>{number_format($r[monthviews])}</em><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+
+                                    {if $i <= 3}
+                                              <li class=" emp">
+                                            {else}
+                                               <li>
+                                            {/if}
+
+                                  <span>{number_format($r[monthviews])}</span><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
                                 
                                 {/loop}
                               </ul>
                               {/pc}
+
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
