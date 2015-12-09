@@ -26,7 +26,7 @@ WHERE
   a.id = b.id
 AND a.catid = c.catid
 ORDER BY
-  updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="10"}
+  updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="8"}
 
             {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
