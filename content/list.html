@@ -2,7 +2,7 @@
   <body>
   
   <!-- 导航条 -->
-{template "content","navlist"}
+{template "content","nav"}
     <div class="context tem">
 
        <div class="container ">
@@ -18,7 +18,7 @@
                     <!-- <li class="active">jQuery事件绑定的最佳实践</li> -->
                   </ol>
             </div>
-            {pc:content action="lists" catid="$catid" num="2" order="inputtime DESC" page="$page"}
+            {pc:content action="lists" catid="$catid" num="8" order="inputtime DESC" page="$page"}
 
 
                  {loop $data $val}
@@ -42,7 +42,7 @@
                           <ul class="list-inline">
                             <li><i class="fa fa-clock-o fa-fw"></i>{date('Y-m-d',$val[inputtime])}</li>
                             <li><i class="fa fa-eye fa-fw"></i>点击量：{$views}</li>
-                            <li><i class="fa fa-comments-o fa-fw"></i>评论( <span id = "sourceId::{$val[id]}" class = "cy_cmt_count" ></span> )</li>
+                            <li><i class="fa fa-comments-o fa-fw"></i>评论: <span id = "sourceId::{$val[id]}" class = "cy_cmt_count" ></span> </li>
                           </ul>
                           <p class="note">
                             {$val[description]}...
@@ -92,29 +92,52 @@
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
+                              <div  class="tab-mod   on">
+                                    <div class="rank-mod">
                             {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
                               <ul >
                                 {php $i=1;}
                                {loop $data $r}
-                                  <li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+
+                                  {if $i <= 3}
+                                              <li class=" emp">
+                                            {else}
+                                               <li>
+                                            {/if}
+
+                                  <span>{$i}</span><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
                                  {php $i++}
                                 {/loop}
                               </ul>
                               {/pc}
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                           <div class="panel panel-default">
                             <div class="panel-body">
+                                <div  class="tab-mod   on">
+                                    <div class="rank-mod">
                               {pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
                               <ul >
                                {loop $data $r}
-                                  <li><em>{number_format($r[monthviews])}</em><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+
+                                   {if $i <= 3}
+                                              <li class=" emp">
+                                            {else}
+                                               <li>
+                                            {/if}
+
+
+                                  <span>{number_format($r[monthviews])}</span><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
                                 
                                 {/loop}
                               </ul>
                               {/pc}
+                                 </div>
+                               </div>
                             </div>
                           </div>
                         </div>

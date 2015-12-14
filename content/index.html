@@ -1,4 +1,4 @@
-{template "content","header"}
+{template "content","indexheader"}
   <body>
   <!-- 导航条 -->
 {template "content","nav"}
@@ -26,7 +26,7 @@ WHERE
   a.id = b.id
 AND a.catid = c.catid
 ORDER BY
-  updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="3"}
+  updatetime DESC" cache="3600" page="$_GET['page']" return="data" num="8"}
 
             {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
@@ -109,7 +109,33 @@ ORDER BY
                         <div role="tabpanel" class="tab-pane active" id="home">
                           <div class="panel panel-default">
                             <div class="panel-body">
-                                 {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
+
+                                <div  class="tab-mod   on">
+                                    <div class="rank-mod">
+                                    {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
+                                    <ul>
+
+                                        {php $i=1;}
+                                          {loop $data $r}
+
+                                            {if $i <= 3}
+                                              <li class=" emp">
+                                            {else}
+                                               <li>
+                                            {/if}
+                                           <span>{$i}</span><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+                                           {php $i++;}
+                                        {/loop}
+
+                                    </ul>
+
+
+                                       {/pc}
+                                    </div>
+                                </div>
+
+
+                                 <!-- {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
                               <ul>
                                 {php $i=1;}
                                   {loop $data $r}
@@ -117,7 +143,7 @@ ORDER BY
                                    {php $i++;}
                                 {/loop}
                                 </ul>
-                              {/pc}
+                              {/pc} -->
                             </div>
                           </div>
                         </div>
