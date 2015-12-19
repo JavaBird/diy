@@ -31,9 +31,9 @@
                       <div class="col-sm-3">
                           <a href="#" class="thumbnail">
                             {if $val[thumb]}
-                              <img src="{thumb($val['thumb'],150,220)}"  />
+                              <img alt="{$val[title]}"  class="img-responsive" src="{thumb($val['thumb'],150,220)}"  />
                               {else}
-                               <img data-src="holder.js/171x117/text:码农之家" alt="码农之家"/>
+                               <img alt="{$val[title]}"  class="img-responsive" data-src="holder.js/171x117/text:码农之家" alt="码农之家"/>
                               {/if}
                           </a>
                       </div>
@@ -48,7 +48,7 @@
                             {$val[description]}...
                           </p>
                           <p >
-                            <span class="label label-info arrowed-right">标签：</span>
+                            <span class="label label-info">标签：</span>
                               {php $keywords = explode(' ',$val[keywords]);}
                               {loop $keywords $keyword}
                               <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>

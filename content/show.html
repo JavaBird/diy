@@ -2,7 +2,7 @@
   <body >
   {template "content","navlist"}
 
-    <div class="context tem">
+    <div class="context">
 
        <div class="container">
           <div class="row">
@@ -26,17 +26,21 @@
                       <li >点击：<span id="hits"></span></li>
                     </ul>
                 </div>
-                <p>
+               <div class="showContext">
                   {$content}
-                </p>
+              </div>
 
+
+
+                 <div class="bdsharebuttonbox"><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone">QQ空间</a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">新浪微博</a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq">腾讯微博</a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren">人人网</a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a><a href="#" class="bds_more" data-cmd="more">分享到：</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
                 <p style="margin-bottom:10px">
                   <strong>相关热词搜索：</strong>{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a>  {/loop}
                   </p>
                 <div class="alert alert-danger" role="alert">
 
 除非特别声明，码农之家均为原创或投稿报道，转载请注明作者及原文链接
-<p>原文地址：{$url}</p>
+<p>原文地址：<a href="{go($catid,$id)}" alt="{$title}">{go($catid,$id)}</a>{go($catid,$id)}</p>
 </div>
 
                   

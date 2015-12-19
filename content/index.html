@@ -44,9 +44,9 @@ ORDER BY
                         <div class="col-sm-3">
                             <a href="#" class="thumbnail">
                               {if $r[thumb]}
-                              <img src="{thumb($r['thumb'],150,220)}"  />
+                              <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
                               {else}
-                               <img data-src="holder.js/171x117/text:码农之家" alt="码农之家"/>
+                               <img alt="{$r[title]}"  class="img-responsive" data-src="holder.js/171x117/text:码农之家" alt="码农之家"/>
                               {/if}
                             </a>
                         </div>
