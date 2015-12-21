@@ -42,7 +42,7 @@ ORDER BY
                   <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-3">
-                            <a href="#" class="thumbnail">
+                            <a href="{$r[url]}" target="_blank" class="thumbnail">
                               {if $r[thumb]}
                               <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
                               {else}
@@ -51,7 +51,7 @@ ORDER BY
                             </a>
                         </div>
                         <div class="col-sm-9">
-                            <h4 class="h4o"><a href="{$r[url]}">{$r[title]}</a></h4>
+                            <h4 class="h4o"><a href="{$r[url]}" target="_blank" >{$r[title]}</a></h4>
                             <ul class="list-inline">
                               <li><i class="fa fa-clock-o fa-fw"></i> {date('Y-m-d',$r[inputtime])}</li>
                               <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
